@@ -14,7 +14,7 @@ frappe.pages['biometric-sync-status'].on_page_load = function(wrapper) {
 	page.set_secondary_action('Sync Now', () => {
 		debugger;
 		frappe.call({
-			method: 'biometric_attendance.utils.	',
+			method: 'biometric_attendance.utils.sync_biometric_attendance',
 			callback: function(r) {
 				frappe.show_alert({
 					message: 'Sync initiated',
