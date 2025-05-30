@@ -40,7 +40,10 @@ app_license = "mit"
 # webform_include_css = {"doctype": "public/css/doctype.css"}
 
 # include js in page
-# page_js = {"page" : "public/js/file.js"}
+page_js = {
+    "biometric-sync-status": "public/js/biometric_sync_status.js"
+}
+
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
@@ -82,7 +85,7 @@ app_license = "mit"
 # Installation
 # ------------
 
-# before_install = "biometric_attendance.install.before_install"
+before_install = "biometric_attendance.utils.setup_biometric_sync"
 # after_install = "biometric_attendance.install.after_install"
 
 # Uninstallation
@@ -148,23 +151,13 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"biometric_attendance.tasks.all"
-# 	],
-# 	"daily": [
-# 		"biometric_attendance.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"biometric_attendance.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"biometric_attendance.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"biometric_attendance.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+    "cron": {
+        "*/15 * * * *": [
+            "biometric_attendance.utils.sync_biometric_attendance"
+        ]
+    }
+}
 
 # Testing
 # -------
@@ -242,3 +235,7 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+whitelist_methods = {
+    "biometric_attendance.utils.sync_biometric_attendance": ["System Manager", "HR Manager"],
+    "biometric_attendance.utils.get_last_sync_status": ["System Manager", "HR Manager", "HR User"]
+} 

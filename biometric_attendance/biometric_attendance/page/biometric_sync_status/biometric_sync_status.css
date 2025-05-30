@@ -1,0 +1,24 @@
+.status-table {
+    margin: 20px;
+}
+
+.status-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.status-table th {
+    background-color: var(--fg-color);
+    font-weight: bold;
+}
+
+.status-table td, .status-table th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.error-msg {
+    color: var(--red-500);
+    cursor: pointer;
+} 

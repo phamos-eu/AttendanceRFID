@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "creation": "2024-03-20 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sync_settings_section",
+  "pull_frequency",
+  "import_start_date",
+  "column_break_4",
+  "enabled",
+  "logs_directory",
+  "error_handling_section",
+  "ignore_employee_not_found",
+  "ignore_inactive_employee",
+  "ignore_duplicate_checkin"
+ ],
+ "fields": [
+  {
+   "fieldname": "sync_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Sync Settings"
+  },
+  {
+   "default": "60",
+   "description": "Time in minutes",
+   "fieldname": "pull_frequency",
+   "fieldtype": "Int",
+   "label": "Pull Frequency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "import_start_date",
+   "fieldtype": "Date",
+   "label": "Import Start Date"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "default": "logs",
+   "fieldname": "logs_directory",
+   "fieldtype": "Data",
+   "label": "Logs Directory",
+   "reqd": 1
+  },
+  {
+   "fieldname": "error_handling_section",
+   "fieldtype": "Section Break",
+   "label": "Error Handling"
+  },
+  {
+   "default": "1",
+   "fieldname": "ignore_employee_not_found",
+   "fieldtype": "Check",
+   "label": "Ignore Employee Not Found"
+  },
+  {
+   "default": "1",
+   "fieldname": "ignore_inactive_employee",
+   "fieldtype": "Check",
+   "label": "Ignore Inactive Employee"
+  },
+  {
+   "default": "1",
+   "fieldname": "ignore_duplicate_checkin",
+   "fieldtype": "Check",
+   "label": "Ignore Duplicate Checkin"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-03-20 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Biometric Attendance",
+ "name": "Biometric Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+} 
