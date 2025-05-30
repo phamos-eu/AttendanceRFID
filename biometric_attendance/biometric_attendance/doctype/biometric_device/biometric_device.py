@@ -3,6 +3,7 @@ from frappe.model.document import Document
 from zk import ZK, const
 import json
 from datetime import datetime
+from hrms.hr.doctype.employee_checkin.employee_checkin import add_log_based_on_employee_field
 
 class BiometricDevice(Document):
     def validate(self):
@@ -72,15 +73,21 @@ class BiometricDevice(Document):
                         punch_direction = None
                 
                 # Create Employee Checkin
-                checkin = frappe.get_doc({
-                    "doctype": "Employee Checkin",
-                    "employee_field_value": log['user_id'],
-                    "time": log['timestamp'],
-                    "device_id": self.device_id,
-                    "log_type": punch_direction
-                })
+                # checkin = frappe.get_doc({
+                #     "doctype": "Employee Checkin",
+                #     "employee_field_value": log['user_id'],
+                #     "time": log['timestamp'],
+                #     "device_id": self.device_id,
+                #     "log_type": punch_direction
+                # })
+                add_log_based_on_employee_field(
+                    employee_field_value= log['user_id'],
+                    timestamp= log['timestamp'],
+                    device_id = self.device_id,
+                    log_type= punch_direction
+                )
                 
-                checkin.insert()
+                # checkin.insert()
                 
             except Exception as e:
                 error_msg = str(e)
